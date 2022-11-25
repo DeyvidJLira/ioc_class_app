@@ -1,11 +1,15 @@
 import 'package:ioc_class_app/domain/model/api_response.model.dart';
 import 'package:ioc_class_app/domain/model/exchange.model.dart';
+import 'package:ioc_class_app/domain/repository/exchange.repository.dart';
 import 'package:ioc_class_app/service/exchange.service_impl.dart';
 import 'package:ioc_class_app/strings.dart';
 
-class ExchangeRepository {
-  final ExchangeService _service = ExchangeService();
+class ExchangeRepositoryImpl implements ExchangeRepository {
+  final ExchangeService _service;
 
+  ExchangeRepositoryImpl(this._service);
+
+  @override
   Future<APIResponse<Exchange>> getByCoinCode(String code) async {
     try {
       final response = await _service.getByCoinCode(code);

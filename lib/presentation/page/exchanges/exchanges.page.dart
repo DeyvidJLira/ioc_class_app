@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:get_it/get_it.dart';
 import 'package:ioc_class_app/controller/exchanges.controller.dart';
 import 'package:ioc_class_app/presentation/component/input_dialog.component.dart';
 import 'package:ioc_class_app/presentation/component/progress_dialog.component.dart';
@@ -7,7 +8,7 @@ import 'package:ioc_class_app/presentation/component/search_field.component.dart
 import 'package:ioc_class_app/presentation/widget/exchange_tile.dart';
 
 class ExchangesPage extends StatelessWidget {
-  final _controller = ExchangesController();
+  final _controller = GetIt.instance.get<ExchangesController>();
   final _progressDialog = ProgressDialog();
 
   ExchangesPage({super.key});

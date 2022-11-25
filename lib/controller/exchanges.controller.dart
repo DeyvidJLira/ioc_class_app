@@ -1,6 +1,6 @@
 import 'package:ioc_class_app/domain/model/api_response.model.dart';
 import 'package:ioc_class_app/domain/model/exchange.model.dart';
-import 'package:ioc_class_app/repository/exchange.respository_impl.dart';
+import 'package:ioc_class_app/domain/repository/exchange.repository.dart';
 import 'package:mobx/mobx.dart';
 
 part 'exchanges.controller.g.dart';
@@ -12,7 +12,9 @@ abstract class ExchangesControllerBase with Store {
   Exchange _exchangeBase =
       Exchange(coinCode: "USD", coinName: "Dólar Americano", bid: 100);
 
-  final ExchangeRepository _repository = ExchangeRepository();
+  final ExchangeRepository _repository;
+
+  ExchangesControllerBase(this._repository);
 
   APIResponse<Exchange> _exchangeResponse = APIResponse.loading();
 
